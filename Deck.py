@@ -27,5 +27,15 @@ class Deck:
         deck.remove(c4)
         self.dealer = [c1,c3]
         self.player = [c2,c4]
+    
+    def hit(self,hand,deck):
+        card = choice(deck)
+        deck.remove(card)
+        self.player = self.player + [card]
+
+    def dealHit(self,hand,deck):
+        card = choice(deck)
+        deck.remove(card)
+        self.dealer = self.dealer + [card]
 
     
