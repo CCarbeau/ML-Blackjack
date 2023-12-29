@@ -1,4 +1,4 @@
-import Deck
+import deckL
 import handValue
 
 def main():
@@ -14,8 +14,8 @@ def round(stack):
         bet = int(input("How much would you like to bet? \n"))
         if bet == -1:
             return -1
-    deck = Deck.Deck()
-    deck.deal(deck.deck)
+    deck = deckL.deckL()
+    deck.deal(deck.cards)
     handVal = handValue.handValue.handVal(deck.player)
     print("Dealer:",deck.dealer[0])
     print("You:", deck.player[0]+" "+deck.player[1])
@@ -25,7 +25,7 @@ def round(stack):
     move = input("Hit or Stay? \n")
     while (move == "hit" or move == "Hit") and handVal[1] < 22:
         if move == "hit" or move == "Hit":
-            deck.hit(deck.player,deck.deck)
+            deck.hit(deck.player,deck.cards)
         print("Your Hand:", deck.player)
         if handValue.handValue.handVal(deck.player)[1] > 21:
             print('You lose',bet)
@@ -34,7 +34,7 @@ def round(stack):
         handVal = handValue.handValue.handVal(deck.player)
     print("Dealer's hand:",deck.dealer)
     while (handValue.handValue.handVal(deck.dealer)[0] < 17) or (handValue.handValue.handVal(deck.dealer)[0] > 21 and handValue.handValue.handVal(deck.dealer)[1] < 18): 
-        deck.dealHit(deck.dealer,deck.deck)
+        deck.dealHit(deck.dealer,deck.cards)
         print(deck.dealer)
     result = detWin(deck.dealer,handVal, bet)
     return stack + result 

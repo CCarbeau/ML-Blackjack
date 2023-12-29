@@ -1,7 +1,7 @@
 from random import choice
-class Deck:
+class deckL:
     def __init__(self):
-        self.deck=["A♠", "A♥","A♦","A♣",
+        self.cards=["A♠", "A♥","A♦","A♣",
                    "K♠", "K♥","K♦","K♣", 
                    "Q♠","Q♥","Q♦","Q♣",
                    "J♠","J♥","J♦","J♣",
