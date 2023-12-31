@@ -9,7 +9,7 @@ def main():
     
 def round(stack):
     bet = int(input("How much would you like to bet? \n"))
-    while bet > stack and bet > 0: 
+    while bet > stack or bet < 0: 
         print("Please bet a valid amount")
         bet = int(input("How much would you like to bet? \n"))
         if bet == -1:
