@@ -1,11 +1,16 @@
 import deckL
 import handValue
+from flask import Flask
 
+app = Flask(__name__)
+
+@app.route("/main")
 def main():
-    stack = int(input("What's your buy in? \n"))
-    while stack > 0: 
-        stack = round(stack)
-        print("Your stack is:", stack)
+    #stack = int(input("What's your buy in? \n"))
+    #while stack > 0: 
+    #    stack = round(stack)
+    #    print("Your stack is:", stack)
+    return {"bofa":["hi","hi2"]} 
     
 def round(stack):
     bet = int(input("How much would you like to bet? \n"))
@@ -95,4 +100,4 @@ def detWin(dealer, handVal, bet):
                 return -1 * bet 
 
 if __name__ == "__main__":
-    main()
+    app.run(debug=True, host = '0.0.0.0')
