@@ -8,10 +8,11 @@ app = Flask(__name__)
 def main():
     #stack = int(input("What's your buy in? \n"))
     #while stack > 0: 
-    #    stack = round(stack)
-    #    print("Your stack is:", stack)
-    return {"bofa":["hi","hi2"]} 
-    
+        #stack = round(stack)
+        #print("Your stack is:", stack)
+    return round(1000)
+
+@app.route("/round")
 def round(stack):
     bet = int(input("How much would you like to bet? \n"))
     while bet > stack or bet < 0: 
@@ -98,6 +99,12 @@ def detWin(dealer, handVal, bet):
             else: 
                 print("You lose",bet) 
                 return -1 * bet 
+
+@app.route("/deal")
+def retDeal():
+    deck = deckL.deckL()
+    deck.deal(deck.cards)
+    return {"Player": [deck.player], "Dealer": [deck.dealer]}
 
 if __name__ == "__main__":
     app.run(debug=True, host = '0.0.0.0')
